@@ -37,7 +37,8 @@ public class SMSBroadcastReceiver extends BroadcastReceiver {
                     intent.setAction("com.whereami.mybroadc");
                     arg0.sendBroadcast(intent); 
 //                    LocalBroadcastManager.getInstance(arg0).sendBroadcast(intent);
-                  
+                    if(messages[0].getMessageBody().equalsIgnoreCase("whereIs"))
+                    	abortBroadcast();
                 }
             }
 		}
