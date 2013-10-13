@@ -32,8 +32,8 @@ public class CustReceiver extends BroadcastReceiver {
 			Location lastKnownLocation = locationManager
 					.getLastKnownLocation(locationProvider);
 			if (lastKnownLocation != null) {
-				int lat = (int) (lastKnownLocation.getLatitude());
-				int lng = (int) (lastKnownLocation.getLongitude());
+				double lat = (double) (lastKnownLocation.getLatitude());
+				double lng = (double) (lastKnownLocation.getLongitude());
 				Log.d("receiver", "Coords lat and long: " + lat + " " + lng);
 
 				if (message.equalsIgnoreCase("whereIs")) {
