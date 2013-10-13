@@ -23,7 +23,7 @@ public class CustReceiver extends BroadcastReceiver {
 				.getSystemService(Context.LOCATION_SERVICE);
 
 		if (Const._DEBUG == true) {
-			if (message.equalsIgnoreCase("whereIs")) {
+			if (message.equalsIgnoreCase(Const._SECRET_WORD)) {
 				sendSMS(sender,
 						"http://maps.google.com/maps?z=12&t=m&q=loc:38.9419+-78.3020");
 
@@ -32,11 +32,11 @@ public class CustReceiver extends BroadcastReceiver {
 			Location lastKnownLocation = locationManager
 					.getLastKnownLocation(locationProvider);
 			if (lastKnownLocation != null) {
-				int lat = (int) (lastKnownLocation.getLatitude());
-				int lng = (int) (lastKnownLocation.getLongitude());
+				double lat = (double) (lastKnownLocation.getLatitude());
+				double lng = (double) (lastKnownLocation.getLongitude());
 				Log.d("receiver", "Coords lat and long: " + lat + " " + lng);
 
-				if (message.equalsIgnoreCase("whereIs")) {
+				if (message.equalsIgnoreCase(Const._SECRET_WORD)) {
 					// sendSMS(sender,
 					// "http://maps.google.com/maps?z=12&t=m&q=loc:38.9419+-78.3020");
 					sendSMS(sender,
